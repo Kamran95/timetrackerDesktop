@@ -3,8 +3,11 @@
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
+const updater =require('./updater')
 const isDevelopment = process.env.NODE_ENV !== 'production'
-const { autoUpdater } = require("electron-updater")
+// const { autoUpdater } = require("electron-updater")
+// autoUpdater.logger=require('electron-log')
+// autoUpdater.logger.transports.file.level='info';
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
@@ -20,6 +23,7 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
+      enableRemoteModule: true,
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
@@ -62,6 +66,7 @@ app.on('activate', () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
+  setTimeout(updater.check,2000)
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
     try {
@@ -70,7 +75,7 @@ app.on('ready', async () => {
       console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  autoUpdater.checkForUpdatesAndNotify()
+  // autoUpdater.checkForUpdates()
   createWindow()
 })
 
