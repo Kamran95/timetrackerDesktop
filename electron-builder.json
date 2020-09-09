@@ -1,0 +1,18 @@
+{
+  "productName": "Time Tracker App",
+  "appId": "com.example.timetracker",
+  "directories": {
+    "output": "build/${version}"
+  },
+  "publish": [
+    {
+      "provider": "github",
+      "private": true,
+      "owner": "Kamran95",
+      "repo": "timetrackerDesktop",
+      "token": "c46ae717a526593689acdef442f2ec99d3b58ffa"
+    }
+  ]
+ 
+  
+}

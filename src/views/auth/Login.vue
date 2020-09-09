@@ -1,7 +1,7 @@
 <template>
     <div>
      <span style="text-align:center;">
-      <h1>Login</h1>
+      <h1>Login 123123</h1>
 <img style="margin-left:40%" src="@/assets/Group_127.svg" />
       </span>
 <b-row class="h-100">
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+// import updater from '../../updater'
     export default {
         data(){
           return{

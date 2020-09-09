@@ -161,6 +161,7 @@
 <script>
 import screenshot from '@/assets/js/screenshot'
 import renderer from '@/assets/js/renderer'
+
 const {ipcRenderer} =require('electron')
 export default {
   created(){

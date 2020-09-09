@@ -36,12 +36,13 @@ function createWindow() {
     if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
     createProtocol('app')
+    // autoUpdater.checkForUpdatesAndNotify()
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
 
   win.on('closed', () => {
-    win = null
+    win = nullß
   })
 }
 
